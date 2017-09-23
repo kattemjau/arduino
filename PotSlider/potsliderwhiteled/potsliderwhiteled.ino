@@ -26,7 +26,7 @@ int check(){
   green = analogRead(A1)*0.2490234375;
   blue = analogRead(A2)*0.2490234375;
   red = analogRead(A3)*0.2490234375;
-  bu=digitalRead(button);
+  //bu=digitalRead(button);
   if(green<5){
     green=0;
   }if(red<5){
@@ -44,11 +44,11 @@ int check(){
   }if(pot1>245){
     pot1=255;
   }
-  if(bu==LOW){
+ /* if(bu==LOW){
     on++;
     delay(200);
     return 1;
-  }
+  } */
   return 0;
 }
 
@@ -59,15 +59,15 @@ void loop() {
   //debug();
   analogWrite(white, pot1);
   
-  if(on==1){
+ // if(on==1){
    solidColour(); 
-  }else if(on==2){
-    blinky();
-  }else if(on==3){
-    fade();
-  }else if(on>=4){
-    on=1;
-  }
+  //}else if(on==2){
+   // blinky();
+ // }else if(on==3){
+   // fade();
+  //}else if(on>=4){
+  //  on=1;
+ // }
   
 
   
