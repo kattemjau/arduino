@@ -18,11 +18,11 @@ void setup() {
   
 }
 int on=1;
-int red, blue, green, pot1, sped;
+int red, blue, green, pot1;
 
 int check(){
   pot1 = analogRead(A0)*0.2490234375;
-  sped=pot1/4;
+  //100=pot1/4;
   green = analogRead(A1)*0.2490234375;
   blue = analogRead(A2)*0.2490234375;
   red = analogRead(A3)*0.2490234375;
@@ -56,7 +56,7 @@ void loop() {
 
   check();
   
-  debug();
+  //debug();
   analogWrite(white, pot1);
   
   if(on==1){
@@ -109,7 +109,7 @@ void fade(){
   // fade from blue to violet
   for (r = 0; r < red; r++) { 
     analogWrite(redled, r);
-    delay(sped);
+    delay(100);
     if(check()){
     return;
   }
@@ -118,7 +118,7 @@ void fade(){
   // fade from violet to red
   for (b = 255; b > 0; b--) { 
     analogWrite(blueled, b);
-    delay(sped);
+    delay(100);
     if(check()){
     return;
   }
@@ -126,7 +126,7 @@ void fade(){
   // fade from red to yellow
   for (g = 0; g < green; g++) { 
     analogWrite(greenled, g);
-    delay(sped);
+    delay(100);
     if(check()){
     return;
   }
@@ -135,7 +135,7 @@ void fade(){
   // fade from yellow to green
   for (r = 255; r > 0; r--) { 
     analogWrite(redled, r);
-    delay(sped);
+    delay(100);
     if(check()){
     return;
   }
@@ -144,7 +144,7 @@ void fade(){
   // fade from green to teal
   for (b = 0; b < blue; b++) { 
     analogWrite(blueled, b);
-    delay(sped);
+    delay(100);
     if(check()){
     return;
   }
@@ -153,7 +153,7 @@ void fade(){
   // fade from teal to blue
   for (g = 255; g > 0; g--) { 
     analogWrite(greenled, g);
-    delay(sped);
+    delay(100);
     if(check()){
     return;
   }
@@ -161,7 +161,7 @@ void fade(){
 }
 
 void solidColour(){
-  if(pot1>=250){
+  /*if(pot1>=250){
     pot1=250;
   }
   if(green<pot1){
@@ -193,7 +193,10 @@ void solidColour(){
     
   }else{
     analogWrite(blueled, blue-pot1);
-  }
+  }*/
+  analogWrite(greenled, green);
+  analogWrite(blueled, blue);
+  analogWrite(redled, red);
 
   
 }
