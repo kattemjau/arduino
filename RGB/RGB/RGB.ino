@@ -110,53 +110,40 @@ void fade(){
   for (r = 0; r < red; r++) { 
     analogWrite(redled, r);
     delay(100);
-    if(check()){
-    return;
-  }
-  } 
+    } 
   
   // fade from violet to red
   for (b = 255; b > 0; b--) { 
     analogWrite(blueled, b);
     delay(100);
-    if(check()){
-    return;
-  }
+   
   } 
   // fade from red to yellow
   for (g = 0; g < green; g++) { 
     analogWrite(greenled, g);
     delay(100);
-    if(check()){
-    return;
-  }
+   
   } 
   
   // fade from yellow to green
   for (r = 255; r > 0; r--) { 
     analogWrite(redled, r);
     delay(100);
-    if(check()){
-    return;
-  }
+    
   } 
  
   // fade from green to teal
   for (b = 0; b < blue; b++) { 
     analogWrite(blueled, b);
     delay(100);
-    if(check()){
-    return;
-  }
+
   } 
 
   // fade from teal to blue
   for (g = 255; g > 0; g--) { 
     analogWrite(greenled, g);
     delay(100);
-    if(check()){
-    return;
-  }
+
   } 
 }
 
