@@ -1,8 +1,24 @@
+#include <Adafruit_NeoPixel.h>
+
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(316, 6, NEO_GRB + NEO_KHZ800);
+
 String data="";
+
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+
+  //annimations for starting
+  strip.begin();
+
+  for (int i = 150; i < 255; i++){
+    //rgb
+    
+    strip.setPixelColor(i, strip.Color(0,(int) i/2,i)); 
+    delay(10);
+    strip.show(); 
+  }
 
 }
 
