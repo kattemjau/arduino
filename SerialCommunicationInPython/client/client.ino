@@ -11,12 +11,15 @@ void setup() {
 
   //annimations for starting
   strip.begin();
-
-  for (int i = 150; i < 255; i++){
+  strip.show(); 
+  for (int k = 0; k < 255; k++){
     //rgb
-    
-    strip.setPixelColor(i, strip.Color(0,(int) i/2,i)); 
-    delay(10);
+    for (int i = 0; i < 121; i++){
+      //addresering
+    //(int) i/2
+      strip.setPixelColor(i, strip.Color(0,(int) k/4,k)); 
+      //delay(5);
+    }
     strip.show(); 
   }
 
